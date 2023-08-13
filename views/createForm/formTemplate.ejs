@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Page</title>
+  </head>
+  <body>
+    <h1>Form Created</h1>
+
+    <!-- Display the button using the provided form -->
+    <% if (form.buttonText && form.link) { %>
+    <a href="<%= form.link %>" target="_blank" rel="noopener noreferrer">
+      <button><%= form.buttonText %></button>
+    </a>
+    <% } %>
+
+    <!-- Add a "Copy Link" button -->
+    <button id="copyLinkBtn">Copy Link</button>
+
+    <script>
+      // Add event listener to the "Copy Link" button
+      document.getElementById("copyLinkBtn").addEventListener("click", () => {
+        // Copy the current URL to the clipboard
+        const currentURL = window.location.href;
+        const dummy = document.createElement("input");
+        document.body.appendChild(dummy);
+        dummy.value = currentURL;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+
+        // Optionally, provide user feedback
+        alert("Link copied to clipboard: " + currentURL);
+      });
+    </script>
+  </body>
+</html>

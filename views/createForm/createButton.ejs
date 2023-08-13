@@ -1,0 +1,42 @@
+<h2>Create Button</h2>
+<form method="POST" action="/formRouter/">
+  <div>
+    <label for="buttonText">Button Text:</label>
+    <input type="text" id="buttonText" name="buttonText" />
+  </div>
+  <div>
+    <label for="link">Link:</label>
+    <input type="text" id="link" name="link" />
+  </div>
+  <button type="submit">Create</button>
+</form>
+
+<div id="buttonContainer" style="display: none">
+  <a id="createdButtonLink" target="_blank" rel="noopener noreferrer">
+    <button id="createdButton"></button>
+  </a>
+</div>
+
+<script>
+  const buttonTextInput = document.getElementById("buttonText");
+  const linkInput = document.getElementById("link");
+  const buttonContainer = document.getElementById("buttonContainer");
+  const createdButton = document.getElementById("createdButton");
+  const createdButtonLink = document.getElementById("createdButtonLink");
+
+  buttonTextInput.addEventListener("input", updateButton);
+  linkInput.addEventListener("input", updateButton);
+
+  function updateButton() {
+    const buttonText = buttonTextInput.value.trim();
+    const link = linkInput.value.trim();
+
+    if (buttonText && link) {
+      createdButton.textContent = buttonText;
+      createdButtonLink.href = link;
+      buttonContainer.style.display = "block";
+    } else {
+      buttonContainer.style.display = "none";
+    }
+  }
+</script>
