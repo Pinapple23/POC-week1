@@ -15,6 +15,7 @@
   app.set('views', __dirname + '/views')
   app.set('layout', 'layouts/layout')
   app.use(expressLayouts)
+  // app.set("layout form", false);
 //   app.use(methodOverride('_method'))
   app.use(express.static('public'))
 

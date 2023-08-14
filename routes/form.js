@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
       const form = await Form.findById(req.params.id)
     //   res.send(form.link)
     //   console.log(form)
-      res.render('createForm/formTemplate', {form})
+      res.render('createForm/formTemplate', {form , layout: false})
     } catch {
       res.redirect('/')
     }
